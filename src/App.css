@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -14,18 +15,58 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #82ffa7;
+  height: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(44, 214, 109);
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+}
+
+.sidebar {
+  background-color: rgb(230, 230, 230);
+  padding: 10px;
+  height: fit-content;
+  width: 200px;
+}
+
+.new-meal-form {
+  width: 50%;
+}
+
+.totals {
+  border: 1px solid gainsboro;
+  background-color: #82ffa7;;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 20px;
+}
+
+.activity-card {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);;
+  padding: 5px 30px 15px 30px;
+  margin-top: 20px;
 }
 
 @keyframes App-logo-spin {

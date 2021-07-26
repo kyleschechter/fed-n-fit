@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import 'playbook-ui/dist/fonts/fontawesome-min';
+import 'playbook-ui/dist/fonts/regular-min';
+import 'playbook-ui/dist/playbook.css';
+
+import React from "react"
+import { Title } from 'playbook-ui';
 import './App.css';
+import MainContent from "./components/MainContent"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <Title text="Fed n' Fit" tag="h3"/>
       </header>
+      <MainContent />
     </div>
   );
 }
