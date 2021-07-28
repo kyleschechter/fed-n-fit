@@ -30,18 +30,24 @@
     },
     {
       "type": "Lunch",
-      "meal": "Spinach",
+      "meal": "Tuna sandy",
       "weight": 40,
       "calories": 200,
-      "id": 7
+      "id": 8
     }
   ],
   "fitness": [
     {
       "id": 1,
-      "type": "cardio",
+      "type": "Cardio",
       "activity": "2 Mile Run",
       "duration": 20
+    },
+    {
+      "id": 2,
+      "type": "Weight Training",
+      "activity": "Chest workout",
+      "duration": 45
     }
   ]
 }

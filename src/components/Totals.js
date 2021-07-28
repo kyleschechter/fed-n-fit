@@ -21,7 +21,7 @@ const Totals = ({ name, total, goal, aDone, bDone, cDone }) => {
           <p>{cDone ? 'Dinner [✔️]' : 'Dinner [ ]'}</p>
         </div>
       )
-    } else {
+    } else if (name === 'fit') {
       return (
         <div className="totals">
           <h1 onClick={() => history.push("/fit")}>Total Exercise</h1>

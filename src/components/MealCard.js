@@ -6,7 +6,7 @@ const MealCard = ({ foods, foodType, isDone, deleteMeal, doneWithMeal }) => {
       .filter(food => food.type === foodType)
       .map(food => {
         return (
-        <tr>
+        <tr key={food.id}>
           <td>{food.meal}</td>
           <td>({food.weight}g)</td>
           <td>{food.calories} cal</td>
@@ -23,7 +23,7 @@ const MealCard = ({ foods, foodType, isDone, deleteMeal, doneWithMeal }) => {
           <th style={isDone ? { color: 'green' } : { color: 'red' }}>{foodType}</th>
           <th id="weight">weight</th>
           <th id="calories">calories</th>
-          <th><button onClick={doneWithMeal} value={foodType} style={{ fontSize: '20px' }}>{isDone ? '✏️' : 'Done'}</button></th>
+          <th><button onClick={(e) => doneWithMeal(e)} value={foodType} style={{ fontSize: '20px' }}>{isDone ? '✏️' : 'Done'}</button></th>
         </tr>
         {mealCardItem(foodType)}
       </table>

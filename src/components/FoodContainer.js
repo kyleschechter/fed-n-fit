@@ -26,7 +26,7 @@ const FoodContainer = ({ foods, doneWithMeal, deleteMeal, brDone, luDone, diDone
         foodType={ft.foodType}
         isDone={ft.isDone}
         deleteMeal={deleteMeal}
-        doneWithMeal={(e) => doneWithMeal(e)} />
+        doneWithMeal={doneWithMeal} />
     )
   })
   return (

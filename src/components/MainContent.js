@@ -13,7 +13,9 @@ Goals for tomorrow:
 
 const MainContent = () => {
   const foodUrl = 'http://localhost:4000/foods'
+  const fitUrl = 'http://localhost:4000/fitness'
   const [foods, setFoods] = useState([])
+  const [fits, setFits] = useState([])
   const [brDone, setBrDone] = useState(false)
   const [luDone, setLuDone] = useState(false)
   const [diDone, setDiDone] = useState(false)
@@ -24,12 +26,22 @@ const MainContent = () => {
     fetch(foodUrl)
       .then(r => r.json())
       .then(data => setFoods(data))
+
+    fetch(fitUrl)
+      .then(r => r.json())
+      .then(data => setFits(data))
   }, [])
 
+// totals
   const totalCalories = foods
     .map(food => food.calories)
     .reduce((acc, curr) => acc + curr, 0)
 
+  const totalMinutes = fits
+  .map(fit => fit.duration)
+  .reduce((acc, curr) => acc + curr, 0)
+
+// submit
   const submitNewMeal = (data) => {
     const configObj = {
       method: 'POST',
@@ -48,6 +60,24 @@ const MainContent = () => {
       .then(data => setFoods([...foods, data]))
   }
 
+  const submitNewActivity = (data) => {
+    const configObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        type: data.type,
+        activity: data.activity,
+        duration: parseInt(data.duration)
+      })
+    }
+    fetch(fitUrl, configObj)
+      .then(r => r.json())
+      .then(data => setFits([...foods, data]))
+  }
+
+  // delete
   const deleteMeal = (mealID) => {
     fetch(`${foodUrl}/${mealID}`, { method: 'DELETE' })
       .then(() => {
@@ -56,15 +86,29 @@ const MainContent = () => {
       })
   }
 
+  const deleteActivity = (actID) => {
+    fetch(`${fitUrl}/${actID}`, { method: 'DELETE' })
+      .then(() => {
+        const newListofFits = fits.filter(fit => fit.id !== actID)
+        setFits(newListofFits)
+      })
+  }
+
+  // done with item
   const doneWithMeal = (e) => {
     if (e.target.value === 'Breakfast') setBrDone(brDone => !brDone)
     else if (e.target.value === 'Lunch') setLuDone(luDone => !luDone)
     else if (e.target.value === 'Dinner') setDiDone(diDone => !diDone)
   }
 
+  const doneWithActivity = (e) => {
+    if (e.target.value === 'Cardio') setCarDone(carDone => !carDone)
+    else if (e.target.value === 'Weight Training') setWtDone(wtDone => !wtDone)
+  }
+
   return (
     <div className="main-content">
-      <SideBar submitNewMeal={submitNewMeal}/>
+      <SideBar submitNew={submitNewMeal}/>
       <Switch>
         <Route exact path="/food">
           <div className="main-body">
@@ -79,7 +123,7 @@ const MainContent = () => {
               />
               <Totals
               name="fit"
-              total={0}
+              total={totalMinutes}
               goal={100}
               aDone={carDone}
               bDone={wtDone}
@@ -108,15 +152,18 @@ const MainContent = () => {
                 />
                 <Totals
                   name="fit"
-                  total={0}
+                  total={totalMinutes}
                   goal={100}
                   aDone={carDone}
                   bDone={wtDone}
                 />
               </div>
               <FitContainer
-                deleteMeal={deleteMeal}
-                doneWithMeal={doneWithMeal}
+              fits={fits}
+              deleteActivity={deleteActivity}
+              doneWithActivity={doneWithActivity}
+              carDone={carDone}
+              wtDone={wtDone}
               />
            </div>
          </Route>
@@ -133,7 +180,7 @@ const MainContent = () => {
                 />
                 <Totals
                   name="fit"
-                  total={0}
+                  total={totalMinutes}
                   goal={100}
                   aDone={carDone}
                   bDone={wtDone}
