@@ -32,16 +32,16 @@ const MainContent = () => {
       .then(data => setFits(data))
   }, [])
 
-// totals
+  // totals
   const totalCalories = foods
     .map(food => food.calories)
     .reduce((acc, curr) => acc + curr, 0)
 
   const totalMinutes = fits
-  .map(fit => fit.duration)
-  .reduce((acc, curr) => acc + curr, 0)
+    .map(fit => fit.duration)
+    .reduce((acc, curr) => acc + curr, 0)
 
-// submit
+  // submit
   const submitNewMeal = (data) => {
     const configObj = {
       method: 'POST',

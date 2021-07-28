@@ -1,8 +1,6 @@
-import React from "react"
+import React from 'react'
 
 const ActivityCard = ({ fits, fitType, isDone, deleteActivity, doneWithActivity }) => {
-
-
   const mealCardItem = (fitType) => (
     fits
       .filter(fit => fit.type === fitType)
@@ -16,7 +14,6 @@ const ActivityCard = ({ fits, fitType, isDone, deleteActivity, doneWithActivity 
         )
       })
   )
-
 
   return (
     <div className="activity-card">
