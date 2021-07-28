@@ -1,5 +1,5 @@
 {
-  "food": [
+  "foods": [
     {
       "id": 1,
       "type": "Breakfast",
@@ -22,20 +22,6 @@
       "calories": 600
     },
     {
-      "id": 4,
-      "type": "Snack",
-      "meal": "Almonds",
-      "weight": 10,
-      "calories": 50
-    },
-    {
-      "type": "",
-      "meal": "Bowl of Oatmeal",
-      "weight": 30,
-      "calories": 150,
-      "id": 5
-    },
-    {
       "type": "Breakfast",
       "meal": "Oats",
       "weight": 50,
@@ -43,18 +29,11 @@
       "id": 6
     },
     {
-      "type": "Dinner",
+      "type": "Lunch",
       "meal": "Spinach",
-      "weight": 100,
+      "weight": 40,
       "calories": 200,
       "id": 7
-    },
-    {
-      "type": "Lunch",
-      "meal": "Bag of Potato Chips",
-      "weight": 30,
-      "calories": 140,
-      "id": 8
     }
   ],
   "fitness": [

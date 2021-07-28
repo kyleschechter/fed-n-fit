@@ -1,16 +1,40 @@
-import React from "react"
-import { Title } from 'playbook-ui'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-const Totals = ({ total }) => {
+const Totals = ({ name, total, goal, aDone, bDone, cDone }) => {
+  let history = useHistory()
+  const dailyGoalMet = {
+    background: 'white',
+    color: 'green',
+    fontWeight: 'bold',
+    border: '2px solid green'
+  }
 
-
+  const checkList = (name) => {
+    if (name === 'food') {
+      return (
+        <div className="totals">
+          <h1 onClick={() => history.push("/food")}>Total Eats</h1>
+          <p style={total >= goal ? dailyGoalMet : { background: 'white', color: 'red' }}>&nbsp; {total} / {goal} calories &nbsp;</p>
+          <p>{aDone ? 'Breakfast [✔️]' : 'Breakfast [ ]'}</p>
+          <p>{bDone ? 'Lunch [✔️]' : 'Lunch [ ]'}</p>
+          <p>{cDone ? 'Dinner [✔️]' : 'Dinner [ ]'}</p>
+        </div>
+      )
+    } else {
+      return (
+        <div className="totals">
+          <h1 onClick={() => history.push("/fit")}>Total Exercise</h1>
+          <p style={total >= goal ? dailyGoalMet : { background: 'white', color: 'red' }}>&nbsp; {total} / {goal} minutes &nbsp;</p>
+            <p>{aDone ? 'Cardio [✔️]' : 'Cardio [ ]'}</p>
+            <p>{bDone ? 'Weight Training [✔️]' : 'Weight Training [ ]'}</p>
+        </div>
+      )
+    }
+  }
   return (
-    <div className="totals">
-      <Title text="Daily Total" tag="h4"/>
-      <p style={{ background: "white" }}>{total} / 2000 calories</p>
-        <p>Breakfast [ ]</p>
-        <p>Lunch [ ]</p>
-        <p>Dinner [ ]</p>
+    <div>
+      {checkList(name)}
     </div>
   )
 }
