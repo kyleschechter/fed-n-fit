@@ -13,8 +13,6 @@ const SideBar = ({ selectedForm, submitNew }) => {
       return <NewMealForm setShowForm={setShowForm} submitNew={submitNew}/>
     } else if (selectedForm === "Fit") {
       return <NewActivityForm setShowForm={setShowForm} submitNew={submitNew}/>
-    } else {
-      alert("Choose a category first!")
     }
   }
 

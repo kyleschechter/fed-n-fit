@@ -27,6 +27,20 @@
       "weight": 50,
       "calories": 150,
       "id": 6
+    },
+    {
+      "type": "Lunch",
+      "meal": "Chiptole burrito",
+      "weight": 36,
+      "calories": 400,
+      "id": 7
+    },
+    {
+      "type": "Dinner",
+      "meal": "Potatos au gratin",
+      "weight": 100,
+      "calories": 200,
+      "id": 8
     }
   ],
   "fitness": [
@@ -41,6 +55,12 @@
       "type": "Weight Training",
       "activity": "Chest workout",
       "duration": 45
+    },
+    {
+      "type": "Cardio",
+      "activity": "Shuttle run",
+      "duration": 40,
+      "id": 3
     }
   ]
 }

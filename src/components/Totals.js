@@ -18,7 +18,7 @@ const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, selectForm
   const checkList = (name) => {
     if (name === "Food") {
       return (
-        <div className="totals">
+        <div className={hideButton ? "totals" : "totals-not-selected"}>
           <h1 onClick={handleClick}>Total Eats</h1>
           <p style={total >= goal ? dailyGoalMet : { background: "white", color: "red" }}>&nbsp; {total} / {goal} calories &nbsp;</p>
           <p>{aDone ? "Breakfast [✔️]" : "Breakfast [ ]"}</p>
@@ -29,7 +29,7 @@ const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, selectForm
       )
     } else if (name === "Fit") {
       return (
-        <div className="totals">
+        <div className={hideButton ? "totals" : "totals-not-selected"}>
           <h1 onClick={handleClick}>Total Exercise</h1>
           <p style={total >= goal ? dailyGoalMet : { background: "white", color: "red" }}>&nbsp; {total} / {goal} minutes &nbsp;</p>
           <p>{aDone ? "Cardio [✔️]" : "Cardio [ ]"}</p>

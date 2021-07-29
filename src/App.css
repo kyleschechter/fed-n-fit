@@ -31,6 +31,10 @@
   margin-bottom: 30px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .sidebar {
   background-color: rgb(230, 230, 230);
   padding: 10px;
@@ -81,19 +85,42 @@
 
 .totals h1 {
   font-size: 21px;
-  color: rgb(93, 93, 93);
-  border-left: 2px solid rgb(93, 93, 93);
-  border-right: 2px solid rgb(93, 93, 93);
+  color: rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(0, 0, 0);
 }
 
 .totals h1:hover {
-  color:rgb(170, 170, 170);
+  color:rgb(100, 100, 100);
+  cursor: pointer;
 }
 
 .totals button {
-  background-color: rgb(93, 93, 93);
-  color: white;
+  background-color: rgb(230, 230, 230);
   border-radius: 8px;
+}
+
+.totals-not-selected {
+  border: 1px solid rgb(86, 255, 100);
+  background-color: #ceffdd;
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin: 30px 20px 10px 20px;
+  width: 70%;
+  height: max-content;
+  font-size: 20px;
+}
+
+.totals-not-selected h1 {
+  font-size: 21px;
+  color: rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(0, 0, 0);
+}
+
+.totals-not-selected h1:hover {
+  color:rgb(100, 100, 100);
+  cursor: pointer;
 }
 
 #home-text {
