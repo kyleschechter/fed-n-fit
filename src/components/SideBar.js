@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
 import NewMealForm from "./NewMealForm"
 import NewActivityForm from "./NewActivityForm"
 
-const SideBar = ({ selectedForm, submitNew }) => {
+const SideBar = ({ toggleSidebar, username, selectedForm, submitNew }) => {
+  const history = useHistory()
   const [showForm, setShowForm] = useState(false)
   const handleClick = () => {
     setShowForm(true)
@@ -16,9 +18,15 @@ const SideBar = ({ selectedForm, submitNew }) => {
     }
   }
 
+  const handleLogIn = () => {
+    toggleSidebar()
+    history.push("/")
+  }
+
   return (
     <div className="sidebar">
-      <p><img style={{ height: "35px" }} alt="profile" src='https://image.flaticon.com/icons/png/512/149/149071.png'/> &nbsp; Kyle S.</p>
+      <p><img style={{ height: "35px" }} alt="profile" src='https://image.flaticon.com/icons/png/512/149/149071.png'/> &nbsp; {username}</p>
+      <button onClick={handleLogIn} style={{ backgroundColor: "black", color: "white" }}>Log Out</button>
       {selectedForm ? <button onClick={handleClick}>Add {selectedForm} +</button> : null}
       {showForm ? displayForm() : null}
     </div>

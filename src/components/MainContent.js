@@ -5,6 +5,7 @@ import SideBar from "./SideBar"
 import FoodContainer from "./FoodContainer"
 import FitContainer from "./FitContainer"
 import Totals from "./Totals"
+import Login from "./Login"
 
 /*
 Goals for tomorrow:
@@ -12,10 +13,13 @@ Goals for tomorrow:
    */
 
 const MainContent = () => {
+  const currentUserUrl = "http://localhost:4000/currentUser"
   const foodUrl = "http://localhost:4000/foods"
   const fitUrl = "http://localhost:4000/fitness"
+  const [currentUser, setCurrentUser] = useState([])
   const [foods, setFoods] = useState([])
   const [fits, setFits] = useState([])
+  const [showSidebar, setShowSidebar] = useState(false)
   const [brDone, setBrDone] = useState(false)
   const [luDone, setLuDone] = useState(false)
   const [diDone, setDiDone] = useState(false)
@@ -32,7 +36,28 @@ const MainContent = () => {
     fetch(fitUrl)
       .then(r => r.json())
       .then(data => setFits(data))
+
+    fetch(currentUserUrl)
+      .then(r => r.json())
+      .then(data => setCurrentUser(data[0]))
   }, [])
+
+  const chooseUser = (user) => {
+    const configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: user.username,
+        calories: parseInt(user.calories),
+        minutes: parseInt(user.minutes)
+      })
+    }
+    fetch(`${currentUserUrl}/1`, configObj)
+      .then(r => r.json())
+      .then(data => setCurrentUser(data))
+  }
 
   // totals
   const totalCalories = foods
@@ -116,7 +141,7 @@ const MainContent = () => {
   // Add hide button that hides logs and sends user back to home page
   const hideButton = (buttonName) => {
     const handleClick = () => {
-      history.push("/")
+      history.push("/home")
       setSelectedForm("")
     }
     return (
@@ -126,9 +151,13 @@ const MainContent = () => {
     )
   }
 
+  const toggleSidebar = () => {
+    setShowSidebar(showSidebar => !showSidebar)
+  }
+
   return (
     <div className="main-content">
-      <SideBar selectedForm={selectedForm} submitNew={selectedForm === "Food" ? submitNewMeal : submitNewActivity}/>
+      {showSidebar ? <SideBar toggleSidebar={toggleSidebar} username={currentUser.username} selectedForm={selectedForm} submitNew={selectedForm === "Food" ? submitNewMeal : submitNewActivity}/> : null}
       <Switch>
         <Route exact path="/food">
           <div className="main-body">
@@ -136,7 +165,7 @@ const MainContent = () => {
               <Totals
               name="Food"
               total={totalCalories}
-              goal={2000}
+              goal={currentUser.calories}
               aDone={brDone}
               bDone={luDone}
               cDone={diDone}
@@ -146,7 +175,7 @@ const MainContent = () => {
               <Totals
               name="Fit"
               total={totalMinutes}
-              goal={100}
+              goal={currentUser.minutes}
               aDone={carDone}
               bDone={wtDone}
               selectForm={selectThisForm}
@@ -168,7 +197,7 @@ const MainContent = () => {
                 <Totals
                   name="Food"
                   total={totalCalories}
-                  goal={2000}
+                  goal={currentUser.calories}
                   aDone={brDone}
                   bDone={luDone}
                   cDone={diDone}
@@ -177,7 +206,7 @@ const MainContent = () => {
                 <Totals
                   name="Fit"
                   total={totalMinutes}
-                  goal={100}
+                  goal={currentUser.minutes}
                   aDone={carDone}
                   bDone={wtDone}
                   hideButton={hideButton}
@@ -193,13 +222,13 @@ const MainContent = () => {
               />
            </div>
          </Route>
-         <Route exact path="/">
+         <Route exact path="/home">
            <div className="main-body">
               <div className="totals-div">
                 <Totals
                   name="Food"
                   total={totalCalories}
-                  goal={2000}
+                  goal={currentUser.calories}
                   aDone={brDone}
                   bDone={luDone}
                   cDone={diDone}
@@ -208,16 +237,19 @@ const MainContent = () => {
                 <Totals
                   name="Fit"
                   total={totalMinutes}
-                  goal={100}
+                  goal={currentUser.minutes}
                   aDone={carDone}
                   bDone={wtDone}
                   selectForm={selectThisForm}
                 />
               </div>
               <div className="activity-container" id="home-text">
-                Click &nbsp; <span style={{ color: "red " }}>TOTAL EATS</span> &nbsp; or &nbsp; <span style={{ color: "red " }}>TOTAL EXERCISE</span> &nbsp; to check your progress!
+                Click &nbsp; <span style={{ color: "red " }}>TOTAL EATS</span> &nbsp; or &nbsp; <span style={{ color: "red " }}>TOTAL EXERCISE</span> &nbsp; to add new items, or update your progress!
               </div>
            </div>
+         </Route>
+         <Route exact path="/">
+           <Login chooseUser={chooseUser} toggleSidebar={toggleSidebar} defaultForm={() => setSelectedForm("")}/>
          </Route>
       </Switch>
     </div>

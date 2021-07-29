@@ -1,4 +1,12 @@
 {
+  "currentUser": [
+    {
+      "id": 1,
+      "username": "asd",
+      "calories": 1231,
+      "minutes": 123
+    }
+  ],
   "foods": [
     {
       "id": 1,
@@ -29,18 +37,25 @@
       "id": 6
     },
     {
-      "type": "Lunch",
-      "meal": "Chiptole burrito",
-      "weight": 36,
-      "calories": 400,
-      "id": 7
-    },
-    {
       "type": "Dinner",
       "meal": "Potatos au gratin",
       "weight": 100,
       "calories": 200,
       "id": 8
+    },
+    {
+      "type": "Lunch",
+      "meal": "Chiptole burrito",
+      "weight": 150,
+      "calories": 200,
+      "id": 9
+    },
+    {
+      "type": "Breakfast",
+      "meal": "poop",
+      "weight": 10,
+      "calories": 356,
+      "id": 10
     }
   ],
   "fitness": [
@@ -57,9 +72,9 @@
       "duration": 45
     },
     {
-      "type": "Cardio",
-      "activity": "Shuttle run",
-      "duration": 40,
+      "type": "Weight Training",
+      "activity": "poop",
+      "duration": 45,
       "id": 3
     }
   ]

@@ -35,6 +35,29 @@ button:hover {
   cursor: pointer;
 }
 
+.login {
+  margin: 4% 20%;
+  padding: 10px;
+  background-color: rgb(230, 230, 230);
+  border: 10px solid #82ffa7;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+input[type=text] {
+  margin: 10px;
+  background-color: #ceffdd;
+}
+
+input[type=number] {
+  margin: 10px;
+  background-color: #ceffdd;
+}
+
+input[type=submit] {
+  background-color: white;
+}
+
 .sidebar {
   background-color: rgb(230, 230, 230);
   padding: 10px;
