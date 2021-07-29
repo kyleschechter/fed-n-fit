@@ -5,13 +5,12 @@
 
 .App-header {
   background-color: #82ffa7;
-  height: 70px;
+  height: 45px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(44, 214, 109);
+  padding-left: 55px;
 }
 
 .App-link {
@@ -76,7 +75,7 @@
   padding: 15px 25px;
   margin: 30px 20px 10px 20px;
   width: 70%;
-  height: 70%;
+  height: max-content;
   font-size: 20px;
 }
 
@@ -89,6 +88,12 @@
 
 .totals h1:hover {
   color:rgb(170, 170, 170);
+}
+
+.totals button {
+  background-color: rgb(93, 93, 93);
+  color: white;
+  border-radius: 8px;
 }
 
 #home-text {

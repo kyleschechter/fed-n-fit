@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react"
 
-import MealCard from './MealCard'
+import MealCard from "./MealCard"
 
 const FoodContainer = ({ foods, doneWithMeal, deleteMeal, brDone, luDone, diDone }) => {
   const listOfFoodTypes = [
     {
-      foodType: 'Breakfast',
+      foodType: "Breakfast",
       isDone: brDone
     },
     {
-      foodType: 'Lunch',
+      foodType: "Lunch",
       isDone: luDone
     },
     {
-      foodType: 'Dinner',
+      foodType: "Dinner",
       isDone: diDone
     }
   ]

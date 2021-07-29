@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const MealCard = ({ foods, foodType, isDone, deleteMeal, doneWithMeal }) => {
   const mealCardItem = (foodType) => (
@@ -19,13 +19,15 @@ const MealCard = ({ foods, foodType, isDone, deleteMeal, doneWithMeal }) => {
   return (
     <div className="activity-card">
       <table>
-        <tr>
-          <th style={isDone ? { color: 'green' } : { color: 'red' }}>{foodType}</th>
-          <th id="weight">weight</th>
-          <th id="calories">calories</th>
-          <th><button onClick={(e) => doneWithMeal(e)} value={foodType} style={{ fontSize: '20px' }}>{isDone ? '✏️' : 'Done'}</button></th>
-        </tr>
-        {mealCardItem(foodType)}
+        <tbody>
+          <tr>
+            <th style={isDone ? { color: "green" } : { color: "red" }}>{foodType}</th>
+            <th id="weight">weight</th>
+            <th id="calories">calories</th>
+            <th><button onClick={(e) => doneWithMeal(e)} value={foodType} style={{ fontSize: "20px" }}>{isDone ? "✏️" : "Done"}</button></th>
+          </tr>
+          {mealCardItem(foodType)}
+       </tbody>
       </table>
     </div>
   )

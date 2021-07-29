@@ -1,11 +1,11 @@
-import 'playbook-ui/dist/fonts/fontawesome-min'
-import 'playbook-ui/dist/fonts/regular-min'
-import 'playbook-ui/dist/playbook.css'
+import "playbook-ui/dist/fonts/fontawesome-min"
+import "playbook-ui/dist/fonts/regular-min"
+import "playbook-ui/dist/playbook.css"
 
-import React from 'react'
-import { Title } from 'playbook-ui'
-import './App.css'
-import MainContent from './components/MainContent'
+import React from "react"
+import { Title } from "playbook-ui"
+import "./App.css"
+import MainContent from "./components/MainContent"
 
 function App () {
   return (

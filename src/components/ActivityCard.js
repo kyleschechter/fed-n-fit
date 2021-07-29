@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const ActivityCard = ({ fits, fitType, isDone, deleteActivity, doneWithActivity }) => {
   const mealCardItem = (fitType) => (
@@ -18,12 +18,14 @@ const ActivityCard = ({ fits, fitType, isDone, deleteActivity, doneWithActivity 
   return (
     <div className="activity-card">
     <table>
-      <tr>
-        <th style={isDone ? { color: 'green' } : { color: 'red' }}>{fitType}</th>
-        <th id="weight">duration</th>
-        <th><button onClick={(e) => doneWithActivity(e)} value={fitType} style={{ fontSize: '20px' }}>{isDone ? '✏️' : 'Done'}</button></th>
-      </tr>
-      {mealCardItem(fitType)}
+      <tbody>
+        <tr>
+          <th style={isDone ? { color: "green" } : { color: "red" }}>{fitType}</th>
+          <th id="weight">duration</th>
+          <th><button onClick={(e) => doneWithActivity(e)} value={fitType} style={{ fontSize: "20px" }}>{isDone ? "✏️" : "Done"}</button></th>
+        </tr>
+        {mealCardItem(fitType)}
+      </tbody>
     </table>
   </div>
   )

@@ -27,13 +27,6 @@
       "weight": 50,
       "calories": 150,
       "id": 6
-    },
-    {
-      "type": "Lunch",
-      "meal": "Tuna sandy",
-      "weight": 40,
-      "calories": 200,
-      "id": 8
     }
   ],
   "fitness": [

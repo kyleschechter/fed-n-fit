@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 const NewMealForm = ({ setShowForm, submitNew }) => {
   const [formData, setFormData] = useState({
-    type: 'Breakfast',
-    meal: '',
-    weight: '',
-    calories: ''
+    type: "Breakfast",
+    meal: "",
+    weight: "",
+    calories: ""
   })
 
   const handleChange = (e) => {

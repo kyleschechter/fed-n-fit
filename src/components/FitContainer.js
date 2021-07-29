@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react"
 
-import ActivityCard from './ActivityCard'
+import ActivityCard from "./ActivityCard"
 
 const FitContainer = ({ fits, carDone, wtDone, doneWithActivity, deleteActivity }) => {
   const listOfFitTypes = [
     {
-      fitType: 'Cardio',
+      fitType: "Cardio",
       isDone: carDone
     },
     {
-      fitType: 'Weight Training',
+      fitType: "Weight Training",
       isDone: wtDone
     }
   ]
