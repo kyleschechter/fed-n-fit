@@ -23,7 +23,7 @@ const Login = ({ chooseUser, toggleSidebar, defaultForm }) => {
       alert("You're missing some information my friend. Don't leave anything blank or we can't track your progress!")
     } else {
       chooseUser(formData)
-      toggleSidebar()
+      toggleSidebar(true)
       defaultForm()
       history.push(`/${formData.username}/home`)
     }

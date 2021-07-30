@@ -19,7 +19,7 @@ const SideBar = ({ toggleSidebar, username, selectedForm, submitNew }) => {
   }
 
   const handleLogIn = () => {
-    toggleSidebar()
+    toggleSidebar(false)
     history.push("/")
   }
 

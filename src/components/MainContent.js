@@ -19,7 +19,7 @@ const MainContent = () => {
   const [currentUser, setCurrentUser] = useState([])
   const [foods, setFoods] = useState([])
   const [fits, setFits] = useState([])
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(true)
   const [brDone, setBrDone] = useState(false)
   const [luDone, setLuDone] = useState(false)
   const [diDone, setDiDone] = useState(false)
@@ -152,8 +152,8 @@ const MainContent = () => {
     )
   }
 
-  const toggleSidebar = () => {
-    setShowSidebar(showSidebar => !showSidebar)
+  const toggleSidebar = (value) => {
+    setShowSidebar(value)
   }
 
   return (
