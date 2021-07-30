@@ -1,8 +1,6 @@
 import React from "react"
-import { useHistory } from "react-router-dom"
 
-const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, selectForm }) => {
-  const history = useHistory()
+const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, handleNavClick }) => {
   const dailyGoalMet = {
     background: "white",
     color: "green",
@@ -11,8 +9,7 @@ const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, selectForm
   }
 
   const handleClick = () => {
-    history.push(`/${name.toLowerCase()}`)
-    selectForm(name)
+    handleNavClick(name)
   }
 
   const checkList = (name) => {

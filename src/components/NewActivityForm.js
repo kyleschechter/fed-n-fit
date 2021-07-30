@@ -28,7 +28,7 @@ const NewActivityForm = ({ setShowForm, submitNew }) => {
           <option value="Weight Training">Weight Training</option>
         </select>
         <input onChange={handleChange} type="text" name="activity" placeholder="What did you do?"/>
-        <input onChange={handleChange} type="text" name="duration" placeholder="For how long?"/>
+        <input onChange={handleChange} type="number" step="1" name="duration" placeholder="For how long?"/>
         <input type="submit" value="Submit Activity"/>
         <button onClick={() => setShowForm(false)}>❌</button>
       </form>

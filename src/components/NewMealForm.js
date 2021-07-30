@@ -30,8 +30,8 @@ const NewMealForm = ({ setShowForm, submitNew }) => {
           <option value="Dinner">Dinner</option>
         </select>
         <input onChange={handleChange} type="text" name="meal" placeholder="What did you eat?"/>
-        <input onChange={handleChange} type="text" name="weight" placeholder="How much? (In Grams)"/>
-        <input onChange={handleChange} type="text" name="calories" placeholder="How many calories?"/>
+        <input onChange={handleChange} type="number" step="1" name="weight" placeholder="How much? (In Grams)"/>
+        <input onChange={handleChange} type="number" step="1" name="calories" placeholder="How many calories?"/>
         <input type="submit" value="Submit Meal"/>
         <button onClick={() => setShowForm(false)}>❌</button>
       </form>

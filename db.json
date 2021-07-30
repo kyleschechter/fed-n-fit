@@ -2,80 +2,74 @@
   "currentUser": [
     {
       "id": 1,
-      "username": "asd",
-      "calories": 1231,
+      "username": "fuck",
+      "calories": 3454,
       "minutes": 123
     }
   ],
   "foods": [
     {
-      "id": 1,
       "type": "Breakfast",
-      "meal": "4 Egg Whites",
+      "meal": "4 Eggs",
       "weight": 50,
-      "calories": 200
-    },
-    {
-      "id": 2,
-      "type": "Lunch",
-      "meal": "Chicken Breast",
-      "weight": 150,
-      "calories": 500
-    },
-    {
-      "id": 3,
-      "type": "Dinner",
-      "meal": "Pot Roast",
-      "weight": 160,
-      "calories": 600
+      "calories": 250,
+      "id": 1
     },
     {
       "type": "Breakfast",
       "meal": "Oats",
-      "weight": 50,
-      "calories": 150,
+      "weight": 100,
+      "calories": 350,
+      "id": 2
+    },
+    {
+      "type": "Breakfast",
+      "meal": "Grapefruit",
+      "weight": 28,
+      "calories": 100,
+      "id": 3
+    },
+    {
+      "type": "Lunch",
+      "meal": "Tuna fish sandwitch",
+      "weight": 120,
+      "calories": 400,
+      "id": 4
+    },
+    {
+      "type": "Lunch",
+      "meal": "Potato chips",
+      "weight": 40,
+      "calories": 120,
+      "id": 5
+    },
+    {
+      "type": "Dinner",
+      "meal": "Filet Mignon",
+      "weight": 250,
+      "calories": 600,
       "id": 6
     },
     {
       "type": "Dinner",
-      "meal": "Potatos au gratin",
-      "weight": 100,
-      "calories": 200,
-      "id": 8
-    },
-    {
-      "type": "Lunch",
-      "meal": "Chiptole burrito",
-      "weight": 150,
-      "calories": 200,
-      "id": 9
-    },
-    {
-      "type": "Breakfast",
-      "meal": "poop",
-      "weight": 10,
-      "calories": 356,
-      "id": 10
+      "meal": "Whole grain rice",
+      "weight": 130,
+      "calories": 80,
+      "id": 7
     }
   ],
   "fitness": [
     {
-      "id": 1,
       "type": "Cardio",
       "activity": "2 Mile Run",
-      "duration": 20
-    },
-    {
-      "id": 2,
-      "type": "Weight Training",
-      "activity": "Chest workout",
-      "duration": 45
+      "duration": 10,
+      "id": 1
     },
     {
       "type": "Weight Training",
-      "activity": "poop",
-      "duration": 45,
-      "id": 3
+      "activity": "Chest and Triceps",
+      "duration": 80,
+      "id": 2
     }
   ]
 }

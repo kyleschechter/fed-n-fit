@@ -25,7 +25,7 @@ const Login = ({ chooseUser, toggleSidebar, defaultForm }) => {
       chooseUser(formData)
       toggleSidebar()
       defaultForm()
-      history.push("/home")
+      history.push(`/${formData.username}/home`)
     }
   }
   return (

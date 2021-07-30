@@ -13,9 +13,9 @@ Goals for tomorrow:
    */
 
 const MainContent = () => {
-  const currentUserUrl = "http://localhost:4000/currentUser"
-  const foodUrl = "http://localhost:4000/foods"
-  const fitUrl = "http://localhost:4000/fitness"
+  const currentUserUrl = `${process.env.REACT_APP_API_URL}/currentUser`
+  const foodUrl = `${process.env.REACT_APP_API_URL}/foods`
+  const fitUrl = `${process.env.REACT_APP_API_URL}/fitness`
   const [currentUser, setCurrentUser] = useState([])
   const [foods, setFoods] = useState([])
   const [fits, setFits] = useState([])
@@ -29,6 +29,10 @@ const MainContent = () => {
   const history = useHistory()
 
   useEffect(() => {
+    fetch(currentUserUrl)
+      .then(r => r.json())
+      .then(data => setCurrentUser(data[0]))
+
     fetch(foodUrl)
       .then(r => r.json())
       .then(data => setFoods(data))
@@ -36,10 +40,6 @@ const MainContent = () => {
     fetch(fitUrl)
       .then(r => r.json())
       .then(data => setFits(data))
-
-    fetch(currentUserUrl)
-      .then(r => r.json())
-      .then(data => setCurrentUser(data[0]))
   }, [])
 
   const chooseUser = (user) => {
@@ -59,6 +59,11 @@ const MainContent = () => {
       .then(data => setCurrentUser(data))
   }
 
+  const handleNavClick = (name) => {
+    history.push(`/${currentUser.username}/${name.toLowerCase()}`)
+    setSelectedForm(name)
+  }
+
   // totals
   const totalCalories = foods
     .map(food => food.calories)
@@ -69,10 +74,6 @@ const MainContent = () => {
     .reduce((acc, curr) => acc + curr, 0)
 
   // submit
-
-  const selectThisForm = (name) => {
-    setSelectedForm(name)
-  }
 
   const submitNewMeal = (data) => {
     const configObj = {
@@ -141,7 +142,7 @@ const MainContent = () => {
   // Add hide button that hides logs and sends user back to home page
   const hideButton = (buttonName) => {
     const handleClick = () => {
-      history.push("/home")
+      history.push(`/${currentUser.username}/home`)
       setSelectedForm("")
     }
     return (
@@ -159,7 +160,7 @@ const MainContent = () => {
     <div className="main-content">
       {showSidebar ? <SideBar toggleSidebar={toggleSidebar} username={currentUser.username} selectedForm={selectedForm} submitNew={selectedForm === "Food" ? submitNewMeal : submitNewActivity}/> : null}
       <Switch>
-        <Route exact path="/food">
+        <Route exact path={`/${currentUser.username}/food`}>
           <div className="main-body">
             <div className="totals-div">
               <Totals
@@ -170,7 +171,7 @@ const MainContent = () => {
               bDone={luDone}
               cDone={diDone}
               hideButton={hideButton}
-              selectForm={selectThisForm}
+              handleNavClick={handleNavClick}
               />
               <Totals
               name="Fit"
@@ -178,7 +179,7 @@ const MainContent = () => {
               goal={currentUser.minutes}
               aDone={carDone}
               bDone={wtDone}
-              selectForm={selectThisForm}
+              handleNavClick={handleNavClick}
               />
             </div>
             <FoodContainer
@@ -191,7 +192,7 @@ const MainContent = () => {
             />
           </div>
         </Route>
-        <Route exact path="/fit">
+        <Route exact path={`/${currentUser.username}/fit`}>
           <div className="main-body">
              <div className="totals-div">
                 <Totals
@@ -201,7 +202,7 @@ const MainContent = () => {
                   aDone={brDone}
                   bDone={luDone}
                   cDone={diDone}
-                  selectForm={selectThisForm}
+                  handleNavClick={handleNavClick}
                 />
                 <Totals
                   name="Fit"
@@ -210,7 +211,7 @@ const MainContent = () => {
                   aDone={carDone}
                   bDone={wtDone}
                   hideButton={hideButton}
-                  selectForm={selectThisForm}
+                  handleNavClick={handleNavClick}
                 />
               </div>
               <FitContainer
@@ -222,7 +223,7 @@ const MainContent = () => {
               />
            </div>
          </Route>
-         <Route exact path="/home">
+         <Route exact path={`/${currentUser.username}/home`}>
            <div className="main-body">
               <div className="totals-div">
                 <Totals
@@ -232,7 +233,7 @@ const MainContent = () => {
                   aDone={brDone}
                   bDone={luDone}
                   cDone={diDone}
-                  selectForm={selectThisForm}
+                  handleNavClick={handleNavClick}
                 />
                 <Totals
                   name="Fit"
@@ -240,7 +241,7 @@ const MainContent = () => {
                   goal={currentUser.minutes}
                   aDone={carDone}
                   bDone={wtDone}
-                  selectForm={selectThisForm}
+                  handleNavClick={handleNavClick}
                 />
               </div>
               <div className="activity-container" id="home-text">
