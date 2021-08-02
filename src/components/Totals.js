@@ -18,7 +18,8 @@ const Totals = ({ name, total, goal, aDone, bDone, cDone, hideButton, handleNavC
         <div className={hideButton ? "totals" : "totals-not-selected"}>
           <h1 onClick={handleClick}>Total Eats</h1>
           <p style={total >= goal ? dailyGoalMet : { background: "white", color: "red" }}>&nbsp; {total} / {goal} calories &nbsp;</p>
-          <p>{aDone ? "Breakfast [✔️]" : "Breakfast [ ]"}</p>
+          {/* <p>{aDone ? "Breakfast [✔️]" : "Breakfast [ ]"}</p> */}
+          <p>{`Breakfast [${aDone ? "✔️" : "" }]`}</p>
           <p>{bDone ? "Lunch [✔️]" : "Lunch [ ]"}</p>
           <p>{cDone ? "Dinner [✔️]" : "Dinner [ ]"}</p>
           {hideButton ? hideButton(name) : <p style={{ fontSize: "10px" }}>*Click the title to view full log*</p>}

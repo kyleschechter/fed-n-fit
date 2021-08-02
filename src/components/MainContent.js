@@ -5,6 +5,7 @@ import FoodContainer from "./FoodContainer"
 import FitContainer from "./FitContainer"
 import Totals from "./Totals"
 import Login from "./Login"
+import { FetchCurrentUser } from "./Util"
 
 
 const MainContent = () => {
@@ -24,9 +25,10 @@ const MainContent = () => {
   const history = useHistory()
 
   useEffect(() => {
-    fetch(currentUserUrl)
-      .then(r => r.json())
-      .then(data => setCurrentUser(data[0]))
+    // fetch(currentUserUrl)
+    //   .then(r => r.json())
+    //   .then(data => setCurrentUser(data[0]))
+    FetchCurrentUser(currentUserUrl, setCurrentUser)
 
     fetch(foodUrl)
       .then(r => r.json())
@@ -152,6 +154,8 @@ const MainContent = () => {
     setShowSidebar(value)
   }
 
+  // Move food and fit container into seperate components
+  // Create totals div component, importing totals' components
   return (
     <div className="main-content">
       {showSidebar ? <SideBar toggleSidebar={toggleSidebar} username={currentUser.username} selectedForm={selectedForm} submitNew={selectedForm === "Food" ? submitNewMeal : submitNewActivity}/> : null}

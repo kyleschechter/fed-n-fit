@@ -18,6 +18,8 @@ const FoodContainer = ({ foods, doneWithMeal, deleteMeal, brDone, luDone, diDone
     }
   ]
 
+  // Could be used to refactor totals and sidebar
+
   const allMealCards = listOfFoodTypes.map(ft => {
     return (
       <MealCard

@@ -2,9 +2,9 @@
   "currentUser": [
     {
       "id": 1,
-      "username": "NickyT",
-      "calories": 4000,
-      "minutes": 200
+      "username": "wade",
+      "calories": 2000,
+      "minutes": 100
     }
   ],
   "foods": [
@@ -69,6 +69,16 @@
       "type": "Weight Training",
       "activity": "Chest and Triceps",
       "duration": 80,
+      "id": 2
+    }
+  ],
+  "fitnessTypes": [
+    {
+      "name": "Cardio",
+      "id": 1
+    },
+    {
+      "name": "Weight Training",
       "id": 2
     }
   ]
