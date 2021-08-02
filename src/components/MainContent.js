@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-// import { Avatar, Button } from 'playbook-ui'
 import { Route, Switch, useHistory } from "react-router-dom"
 import SideBar from "./SideBar"
 import FoodContainer from "./FoodContainer"
@@ -7,10 +6,6 @@ import FitContainer from "./FitContainer"
 import Totals from "./Totals"
 import Login from "./Login"
 
-/*
-Goals for tomorrow:
-
-   */
 
 const MainContent = () => {
   const currentUserUrl = `${process.env.REACT_APP_API_URL}/currentUser`
@@ -20,11 +15,11 @@ const MainContent = () => {
   const [foods, setFoods] = useState([])
   const [fits, setFits] = useState([])
   const [showSidebar, setShowSidebar] = useState(true)
-  const [brDone, setBrDone] = useState(false)
-  const [luDone, setLuDone] = useState(false)
-  const [diDone, setDiDone] = useState(false)
-  const [carDone, setCarDone] = useState(false)
-  const [wtDone, setWtDone] = useState(false)
+  const [brDone, setBrDone] = useState(false) // Breakfast
+  const [luDone, setLuDone] = useState(false) // Lunch
+  const [diDone, setDiDone] = useState(false) // Dinner
+  const [carDone, setCarDone] = useState(false) // Cardio
+  const [wtDone, setWtDone] = useState(false) // Weight Training
   const [selectedForm, setSelectedForm] = useState("")
   const history = useHistory()
 
@@ -42,6 +37,7 @@ const MainContent = () => {
       .then(data => setFits(data))
   }, [])
 
+  // Handle new user nickname and goals submission
   const chooseUser = (user) => {
     const configObj = {
       method: "PATCH",
@@ -74,7 +70,6 @@ const MainContent = () => {
     .reduce((acc, curr) => acc + curr, 0)
 
   // submit
-
   const submitNewMeal = (data) => {
     const configObj = {
       method: "POST",
@@ -127,7 +122,7 @@ const MainContent = () => {
       })
   }
 
-  // done with item
+  // Done with item
   const doneWithMeal = (e) => {
     if (e.target.value === "Breakfast") setBrDone(brDone => !brDone)
     else if (e.target.value === "Lunch") setLuDone(luDone => !luDone)
@@ -152,6 +147,7 @@ const MainContent = () => {
     )
   }
 
+  // Toggle whether the sidebar is shown or not
   const toggleSidebar = (value) => {
     setShowSidebar(value)
   }
